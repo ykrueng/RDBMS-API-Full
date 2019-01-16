@@ -12,7 +12,7 @@ server.get("/", (req, res) => {
   res.send("Welcome to DB-Zoos API");
 });
 
-server.use("/cohorts", cohortsRoute);
+server.use("/api/cohorts", cohortsRoute);
 
 server.use(error);
 

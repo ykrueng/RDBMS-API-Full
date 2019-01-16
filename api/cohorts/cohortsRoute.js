@@ -39,6 +39,15 @@ router
   .get("/:id", (req, res, next) => {
     res.status(200).json(req.cohort);
   })
+  .get("/:id/students", async (req, res, next) => {
+    const { id } = req.params;
+    try {
+      const students = await db.getCohortStudents(Number(id));
+      res.status(200).json(students);
+    } catch (err) {
+      next({ code: 500 });
+    }
+  })
   .put("/:id", checkName, async (req, res, next) => {
     const { id } = req.params;
     const { name } = req.body;

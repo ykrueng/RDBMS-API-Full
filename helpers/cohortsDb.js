@@ -11,6 +11,11 @@ module.exports = {
     return query;
   },
 
+  getCohortStudents: function (id) {
+    return db("students")
+      .where("cohort_id", id);
+  },
+
   insert: function (cohort) {
     return db("cohorts").insert(cohort);
   },
