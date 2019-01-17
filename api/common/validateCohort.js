@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
     next({ code: 400 });
   } else if (!student.cohort_id) {
     next();
-  } if (typeof student.cohort_id !== "number") {
+  } else if (typeof student.cohort_id !== "number") {
     next({ code: 400 });
   } else {
     const cohorts = await db.get();

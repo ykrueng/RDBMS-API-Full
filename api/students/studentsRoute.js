@@ -40,7 +40,7 @@ router
   .get("/:id", (req, res, next) => {
     res.status(200).json(req.student);
   })
-  .put("/:id", async (req, res, next) => {
+  .put("/:id", validateCohort, validateStudentName, async (req, res, next) => {
     const { id } = req.params;
     const { student } = req.body;
     try {
